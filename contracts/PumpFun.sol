@@ -209,9 +209,14 @@ contract PumpFun is ReentrancyGuard {
 
         require(tokenCurve.complete == true, "Should Be Completed");
 
-        payable(owner).transfer(tokenCurve.realEthReserves);
+        uint256 ethAmount = tokenCurve.realEthReserves;
+        uint256 tokenAmount = tokenCurve.realTokenReserves;
 
-        IERC20(token).transfer(owner, tokenCurve.realTokenReserves);
+        tokenCurve.realEthReserves = 0;
+        tokenCurve.realTokenReserves = 0;
+
+        payable(owner).transfer(ethAmount);
+        IERC20(token).transfer(owner, tokenAmount);
     }
 
     function calculateEthCost(Token memory token, uint256 tokenAmount) public pure returns (uint256) {

@@ -39,6 +39,7 @@ contract TokenFactory {
         string memory name,
         string memory ticker
     ) public payable {
+        require(contractAddress != address(0), "Pool contract not set");
         Token token = new Token(name, ticker, INITIAL_AMOUNT);
         tokens.push(
             TokenStructure (
