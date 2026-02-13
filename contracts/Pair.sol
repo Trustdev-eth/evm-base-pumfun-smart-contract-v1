@@ -51,7 +51,7 @@ contract Pair is ReentrancyGuard {
             reserve0: reserve0,
             reserve1: reserve1,
             _reserve1: MINIMUM_LIQUIDITY(),
-            k: reserve0 * MINIMUM_LIQUIDITY(),
+            k: reserve0 * reserve1,
             lastUpdated: block.timestamp
         });
 
@@ -69,7 +69,7 @@ contract Pair is ReentrancyGuard {
             reserve0: _reserve0,
             reserve1: _reserve1,
             _reserve1: reserve1_,
-            k: pool.k,
+            k: _reserve0 * _reserve1,
             lastUpdated: block.timestamp
         });
 
