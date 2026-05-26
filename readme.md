@@ -160,5 +160,5 @@ MIT — see [LICENSE](LICENSE).
 
 ## Contact
 
-- [Telegram](https://t.me/OnChainMee)
-- [Twitter](https://x.com/OnChainMee)
+- [Telegram](https://t.me/trustdev_eth)
+- [Twitter](https://x.com/trustdev_eth)
